@@ -1,0 +1,14 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  audit:
+    runs-on: macos-latest
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@main
+      - run: echo "CASK=$GITHUB_REPOSITORY_OWNER/${GITHUB_REPOSITORY#*/homebrew-}/octo-browser" >> "$GITHUB_ENV"
+      - run: brew style "$CASK"
+      - run: brew audit --cask --strict --online "$CASK"
