@@ -1,17 +1,15 @@
 # Octo Browser Homebrew tap
 
-Homebrew cask for [Octo Browser](https://octobrowser.net/), for Apple Silicon and Intel Macs.
+This tap is no longer maintained: Octo Browser is now in the official Homebrew cask repository.
 
 ```sh
-brew tap AuthFailed/octobrowser
-brew trust --tap AuthFailed/octobrowser
 brew install --cask octo-browser
 ```
 
-Octo Browser updates itself, so `brew upgrade` skips it unless you pass `--greedy`.
-
-Remove the app together with its profiles and settings:
+If you installed it from this tap, switch to the official cask:
 
 ```sh
-brew uninstall --zap --cask octo-browser
+brew uninstall --cask authfailed/octobrowser/octo-browser
+brew untap AuthFailed/octobrowser
+brew install --cask octo-browser
 ```
